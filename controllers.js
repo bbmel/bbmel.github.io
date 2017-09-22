@@ -10,11 +10,11 @@ app.controller('SessionCtrl', function( $scope, $http ) {
 
     // Info on using $http to get contents from static json file
     // http://stackoverflow.com/questions/16930473/angularjs-factory-http-get-json-file
+    $scope.sessions = [];
 
-    $scope.sessionData = {};
-
-    $http.get('sessionData.json').success(function(data) {
-        $scope.sessionData = data;
-    });
+    $http.get("https://www.salesforce.com/assets/js/filterSessions.jsp?eventId=a1Q3A00000stRRuUAM")
+        .then(function(response) {
+            $scope.sessions = response.data;
+        });
 
 });
