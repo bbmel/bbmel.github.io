@@ -13,10 +13,9 @@ app.controller('SessionCtrl', function( $scope, $http ) {
 
     $scope.sessions = [];
 
-    $http.jsonp("https://salesforce.com/assets/js/filterSessions.jsp?eventId=a1Q3A00000stRRuUAM")
+    $http.get('https://cors.io/?https://www.salesforce.com/assets/js/filterSessions.jsp?eventId=a1Q3A00000stRRuUAM',function(){})
         .then(function(response) {
             $scope.sessions = response.data;
         });
-
 
 });
